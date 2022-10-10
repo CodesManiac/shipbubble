@@ -7,6 +7,7 @@ export interface UsersState {
 
 }
 
+
 const initialState: UsersState = {
     users: [],
     userPosts: [],

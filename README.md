@@ -16,3 +16,5 @@ It will be deployed on Vercel
 2. Setup Layout
 3. Update Readme
 4. Add known configuration(redux)
+5. Add redux configuration
+6. Add header
