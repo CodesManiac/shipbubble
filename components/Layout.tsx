@@ -5,7 +5,7 @@ import Sidebar from './Sidebar';
 
 const Layout = ({ children }: any) => {
   return (
-    <div className=' bg-primary text-white overflow-hidden'>
+    <div className=' h-screen bg-primary text-white overflow-hidden'>
       <Head>
         <title>Shipbubble Assessment</title>
         <link rel='icon' href='/favicon.ico' />
