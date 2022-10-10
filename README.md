@@ -1,27 +1,18 @@
-# Next.js + Tailwind CSS Example
+# Shipbubble Assessment
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+This is a Frontend application that fetches data from [JsonPlaceholder](https://jsonplaceholder.typicode.com/). This project is built with [NextJS](https://nextjs.org/), [TypeScript], [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
 ## How to use
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+Clone the repository, run [yarn](to install dependencies) and run [yarn dev] to start the application
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+## Deployment
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+It will be deployed on Vercel
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+## Implementation Process
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+1. Bootstrap application with [create next app](https://yarnpkg.com/lang/en/docs/cli/create/)
+2. Setup Layout
+3. Update Readme
+4. Add known configuration(redux)
