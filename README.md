@@ -21,3 +21,4 @@ It will be deployed on Vercel
 7. Add Sidebar
 8. Enable content toggling
 9. Add Posts, users, post and user components
+10. Fetched data from jsonplaceholder, save data to redux state and displayed users data

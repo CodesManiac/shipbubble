@@ -1,11 +1,22 @@
 import Layout from '../components/Layout';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import Posts from '../components/Posts';
 import Users from '../components/Users';
+import { getAllPosts } from '../slices/postsSlice';
+import { getAllUsers } from '../slices/usersSlice';
 
-const Home = () => {
+const Home = ({
+  viewAllPosts,
+  viewAllUsers,
+}: {
+  viewAllPosts: [];
+  viewAllUsers: [];
+}) => {
   const visibility = useSelector((state: RootState) => state.posts.visibility);
+  const dispatch = useDispatch();
+  dispatch(getAllPosts(viewAllPosts));
+  dispatch(getAllUsers(viewAllUsers));
 
   return (
     <Layout>
@@ -15,3 +26,17 @@ const Home = () => {
 };
 
 export default Home;
+
+export const getStaticProps = async () => {
+  const getAllPosts = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const getAllUsers = await fetch('https://jsonplaceholder.typicode.com/users');
+
+  const postsData = await getAllPosts.json();
+  const usersData = await getAllUsers.json();
+  return {
+    props: {
+      viewAllPosts: postsData,
+      viewAllUsers: usersData,
+    },
+  };
+};
