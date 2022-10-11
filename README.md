@@ -24,3 +24,5 @@ The application is deployed on Vercel [shippbubble](https://shipbubble.vercel.ap
 10. Fetched data from jsonplaceholder, save data to redux state and displayed users data
 11. Display user's posts and all posts
 12. Add Pagination
+13. Add Post comments
+14. Handled Exceptions

@@ -5,7 +5,7 @@ import Posts from '../components/Posts';
 import Users from '../components/Users';
 import { getAllPosts } from '../slices/postsSlice';
 import { getAllUsers } from '../slices/usersSlice';
-
+import Swal from 'sweetalert2';
 const Home = ({
   viewAllPosts,
   viewAllUsers,
@@ -27,15 +27,28 @@ const Home = ({
 export default Home;
 
 export const getStaticProps = async () => {
-  const getAllPosts = await fetch('https://jsonplaceholder.typicode.com/posts');
-  const getAllUsers = await fetch('https://jsonplaceholder.typicode.com/users');
+  try {
+    const getAllPosts = await fetch(
+      'https://jsonplaceholder.typicode.com/posts'
+    );
+    const getAllUsers = await fetch(
+      'https://jsonplaceholder.typicode.com/users'
+    );
 
-  const postsData = await getAllPosts.json();
-  const usersData = await getAllUsers.json();
-  return {
-    props: {
-      viewAllPosts: postsData,
-      viewAllUsers: usersData,
-    },
-  };
+    const postsData = await getAllPosts.json();
+    const usersData = await getAllUsers.json();
+
+    return {
+      props: {
+        viewAllPosts: postsData,
+        viewAllUsers: usersData,
+      },
+    };
+  } catch (error) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong while fetching data!',
+    });
+  }
 };
