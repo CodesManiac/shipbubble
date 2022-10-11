@@ -18,8 +18,11 @@ export const postsSlice = createSlice({
     name: 'posts',
     initialState,
     reducers: {
-        setVisibility: (state) => {
-            state.visibility = !state.visibility
+        showVisibility: (state) => {
+            state.visibility = true
+        },
+        hideVisibility: (state) => {
+            state.visibility = false
         },
         getAllPosts: (state, action) => {
 
@@ -32,6 +35,6 @@ export const postsSlice = createSlice({
     },
 })
 
-export const { setVisibility, getAllPosts, getPostComments } = postsSlice.actions
+export const { showVisibility, hideVisibility, getAllPosts, getPostComments } = postsSlice.actions
 
 export default postsSlice.reducer
