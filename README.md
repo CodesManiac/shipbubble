@@ -26,3 +26,4 @@ The application is deployed on Vercel [shippbubble](https://shipbubble.vercel.ap
 12. Add Pagination
 13. Add Post comments
 14. Handled Exceptions
+15. Implement delete post funtionality

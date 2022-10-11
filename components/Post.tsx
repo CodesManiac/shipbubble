@@ -11,6 +11,27 @@ const Post = ({ post }: any) => {
   const comments = useSelector((state: RootState) => state.posts.comments);
   const [openComments, setOpenComments] = useState(false);
   const dispatch = useDispatch();
+
+  const deletePost = (id: number) => {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+      method: 'DELETE',
+    })
+      .then((message) =>
+        Swal.fire({
+          icon: 'success',
+          title: 'Congratulations...',
+          text: 'Post deleted successfully',
+        })
+      )
+      .catch((error) =>
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Unable to delete post!',
+        })
+      );
+  };
+
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
       .then((response) => response.json())
@@ -25,11 +46,9 @@ const Post = ({ post }: any) => {
   }, []);
   return (
     <div
-      className={
-        visibility === false
-          ? 'bg-primary p-6 rounded-2xl space-y-7'
-          : 'bg-secondary p-6 rounded-2xl space-y-4'
-      }
+      className={`${
+        visibility ? 'bg-secondary' : 'bg-primary'
+      } p-6 rounded-2xl space-y-7`}
     >
       <p className='font-medium text-lg'>{post.title}</p>
 
@@ -46,7 +65,7 @@ const Post = ({ post }: any) => {
             Comments
           </span>
         </p>
-        <p className='post-navigation'>
+        <p className='post-navigation' onClick={() => deletePost(post.id)}>
           <MessageRemove size='16' color={visibility ? '#0f172a' : '#334155'} />
           <span
             className={
