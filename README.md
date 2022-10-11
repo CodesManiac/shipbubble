@@ -18,3 +18,5 @@ It will be deployed on Vercel
 4. Add known configuration(redux)
 5. Add redux configuration
 6. Add header
+7. Add Sidebar
+8. Enable content toggling
