@@ -1,6 +1,7 @@
 import { Message } from 'iconsax-react';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
 import { getUserPosts } from '../slices/usersSlice';
 import { RootState } from '../store';
 import Post from './Post';
@@ -14,7 +15,14 @@ const User = ({ user }: any) => {
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
       .then((response) => response.json())
-      .then((data) => dispatch(getUserPosts(data)));
+      .then((data) => dispatch(getUserPosts(data)))
+      .catch((error) =>
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong while fetching data!',
+        })
+      );
   }, []);
   return (
     <div className='bg-secondary p-6 rounded-2xl space-y-4'>

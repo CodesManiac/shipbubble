@@ -1,11 +1,28 @@
 import { Message, MessageRemove } from 'iconsax-react';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
+import { getPostComments } from '../slices/postsSlice';
 import { RootState } from '../store';
+import Comments from './Comments';
 
 const Post = ({ post }: any) => {
   const visibility = useSelector((state: RootState) => state.posts.visibility);
-
+  const comments = useSelector((state: RootState) => state.posts.comments);
+  const [openComments, setOpenComments] = useState(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
+      .then((response) => response.json())
+      .then((data) => dispatch(getPostComments(data)))
+      .catch((error) =>
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong while fetching data!',
+        })
+      );
+  }, []);
   return (
     <div
       className={
@@ -24,6 +41,7 @@ const Post = ({ post }: any) => {
             className={
               visibility ? 'hover:text-primary' : 'hover:text-secondary'
             }
+            onClick={() => setOpenComments(!openComments)}
           >
             Comments
           </span>
@@ -39,6 +57,7 @@ const Post = ({ post }: any) => {
           </span>
         </p>
       </div>
+      {openComments && <Comments comments={comments} />}
     </div>
   );
 };
