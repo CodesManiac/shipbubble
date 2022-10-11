@@ -17,7 +17,6 @@ const Home = ({
   const dispatch = useDispatch();
   dispatch(getAllPosts(viewAllPosts));
   dispatch(getAllUsers(viewAllUsers));
-
   return (
     <Layout>
       <div className='p-6 mb-20'>{visibility ? <Posts /> : <Users />}</div>
