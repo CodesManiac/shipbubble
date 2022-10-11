@@ -20,3 +20,4 @@ It will be deployed on Vercel
 6. Add header
 7. Add Sidebar
 8. Enable content toggling
+9. Add Posts, users, post and user components

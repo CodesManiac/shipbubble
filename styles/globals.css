@@ -9,3 +9,8 @@
         @apply font-body;
     }
 }
+@layer components{
+    .post-navigation{
+        @apply flex space-x-2 items-center cursor-pointer;
+    }
+}
