@@ -8,7 +8,7 @@ Clone the repository, run [yarn](to install dependencies) and run [yarn dev] to 
 
 ## Deployment
 
-It will be deployed on Vercel
+The application is deployed on Vercel [shippbubble](https://shipbubble.vercel.app/)
 
 ## Implementation Process
 
@@ -23,3 +23,4 @@ It will be deployed on Vercel
 9. Add Posts, users, post and user components
 10. Fetched data from jsonplaceholder, save data to redux state and displayed users data
 11. Display user's posts and all posts
+12. Add Pagination
