@@ -13,4 +13,13 @@
     .post-navigation{
         @apply flex space-x-2 items-center cursor-pointer;
     }
+    .pagination{
+        @apply flex py-3 my-8 justify-center items-center text-lg space-x-5
+    }
+    .pagination-content{
+        @apply hover:bg-secondary hover:p-1 hover:rounded-lg
+    }
+    .active{
+        @apply bg-secondary flex rounded-full p-1
+    }
 }
