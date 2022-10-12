@@ -29,3 +29,5 @@ The application is deployed on Vercel [shippbubble](https://shipbubble.vercel.ap
 15. Implement delete post functionality
 16. Implement user search functionality
 17. Made application mobile responsive
+18. Improve delete functionality
+19. Improved user experience

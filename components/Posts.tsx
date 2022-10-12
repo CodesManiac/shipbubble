@@ -15,7 +15,7 @@ const Posts = () => {
     const endOffset = itemOffset + itemsPerPage;
     setFilteredPosts(posts.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(posts.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage]);
+  }, [itemOffset, itemsPerPage, posts]);
 
   const handlePageClick = (event: any) => {
     const newOffset = (event.selected * itemsPerPage) % posts.length;

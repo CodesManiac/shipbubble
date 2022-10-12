@@ -4,12 +4,14 @@ import { createSlice } from '@reduxjs/toolkit'
 export interface PostsState {
     visibility: boolean,
     posts: [],
-    comments: []
+    comments: [],
+    removedPost: number
 }
 const initialState: PostsState = {
     visibility: false,
     posts: [],
     comments: [],
+    removedPost: 0
 
 
 }
@@ -31,10 +33,13 @@ export const postsSlice = createSlice({
         getPostComments: (state, action) => {
             state.comments = action.payload
         },
+        setRemovedPost: (state, action) => {
+            state.removedPost = action.payload
+        },
 
     },
 })
 
-export const { showVisibility, hideVisibility, getAllPosts, getPostComments } = postsSlice.actions
+export const { showVisibility, hideVisibility, getAllPosts, getPostComments, setRemovedPost } = postsSlice.actions
 
 export default postsSlice.reducer

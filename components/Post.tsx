@@ -2,13 +2,25 @@ import { Message, MessageRemove } from 'iconsax-react';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
-import { getPostComments } from '../slices/postsSlice';
+import {
+  getAllPosts,
+  getPostComments,
+  setRemovedPost,
+} from '../slices/postsSlice';
+import { getUserPosts } from '../slices/usersSlice';
 import { RootState } from '../store';
 import Comments from './Comments';
 
 const Post = ({ post }: any) => {
   const visibility = useSelector((state: RootState) => state.posts.visibility);
   const comments = useSelector((state: RootState) => state.posts.comments);
+  const posts = useSelector((state: RootState) => state.posts.posts);
+  const userPosts = useSelector((state: RootState) => state.users.userPosts);
+
+  // console.log(
+  //   'first post id is',
+  //   posts.filter((post: any) => post.id)
+  // );
   const [openComments, setOpenComments] = useState(false);
   const dispatch = useDispatch();
 
@@ -16,13 +28,29 @@ const Post = ({ post }: any) => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
       method: 'DELETE',
     })
-      .then((message) =>
+      .then(() => {
+        dispatch(setRemovedPost(id));
+        dispatch(
+          getUserPosts(
+            userPosts.filter((userPost: any) => {
+              return userPost.id !== id;
+            })
+          )
+        );
+        dispatch(
+          getAllPosts(
+            posts.filter((post: any) => {
+              return post.id !== id;
+            })
+          )
+        );
+
         Swal.fire({
           icon: 'success',
           title: 'Congratulations...',
           text: 'Post deleted successfully',
-        })
-      )
+        });
+      })
       .catch((error) =>
         Swal.fire({
           icon: 'error',
