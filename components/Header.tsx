@@ -36,17 +36,19 @@ const Header = () => {
         Shipbubble
       </h2>
       <div className='hidden md:flex md:gap-5'>
-        <div className='flex items-center rounded-md p-2 border  border-white'>
-          <UserSearch size='16' color='#ffffff' />
-          <input
-            type='text'
-            placeholder='Search users'
-            className='outline-none bg-transparent placeholder:text-white placeholder:font-medium p-2'
-            onChange={(e) => {
-              dispatch(setSearchInput(e.target.value));
-            }}
-          />
-        </div>
+        {!visibility && (
+          <div className='flex items-center rounded-md p-2 border  border-white'>
+            <UserSearch size='16' color='#ffffff' />
+            <input
+              type='text'
+              placeholder='Search users'
+              className='outline-none bg-transparent placeholder:text-white placeholder:font-medium p-2'
+              onChange={(e) => {
+                dispatch(setSearchInput(e.target.value));
+              }}
+            />
+          </div>
+        )}
         <button
           onClick={() => dispatch(showVisibility())}
           className='py-2 px-4 rounded-lg font-medium md:font-semibold  hover:bg-primary'

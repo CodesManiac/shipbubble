@@ -11,7 +11,7 @@
 }
 @layer components{
     .post-navigation{
-        @apply flex space-x-2 items-center cursor-pointer text-xs;
+        @apply flex space-x-2 items-center cursor-pointer text-xs hover:text-base;
     }
     .pagination{
         @apply flex py-3 my-8 justify-center items-center text-sm md:text-lg space-x-5

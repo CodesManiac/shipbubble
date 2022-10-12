@@ -12,7 +12,7 @@ const Sidebar = () => {
           className='flex justify-between cursor-pointer items-center hover:text-primary'
           onClick={() => dispatch(showVisibility())}
         >
-          <h1 className='font-medium'>Posts</h1>
+          <h1 className='font-medium hover:font-bold'>Posts</h1>
 
           <ArrowCircleRight size='32' color='#ffffff' />
         </div>
@@ -21,7 +21,7 @@ const Sidebar = () => {
           className='mt-4 flex items-center  justify-between cursor-pointer  hover:text-primary'
           onClick={() => dispatch(hideVisibility())}
         >
-          <h1 className='font-medium'> Users</h1>
+          <h1 className='font-medium hover:font-semibold'> Users</h1>
 
           <ArrowCircleRight size='32' color='#ffffff' />
         </div>
