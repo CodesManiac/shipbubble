@@ -12,7 +12,14 @@ const Comments = ({ comments }: any) => {
       } p-4 space-y-4 border-2 rounded-lg`}
     >
       {comments.map((comment: any) => (
-        <p className='text-justify text-sm'>{comment.body}</p>
+        <p
+          key={comment.id}
+          className={`${
+            visibility ? ' border border-secondary' : 'bg-primary'
+          } text-justify text-sm p-2 rounded-lg`}
+        >
+          {comment.body}
+        </p>
       ))}
     </div>
   );

@@ -50,7 +50,9 @@ const User = ({ user }: any) => {
         </p>
       </div>
       {openPosts &&
-        userPosts?.map((post: any) => <Post post={post} isUserPosts={true} />)}
+        userPosts?.map((post: any) => (
+          <Post post={post} key={post.id} isUserPosts={true} />
+        ))}
     </div>
   );
 };

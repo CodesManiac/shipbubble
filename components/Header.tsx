@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { hideVisibility, showVisibility } from '../slices/postsSlice';
 import { setSearchInput } from '../slices/usersSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +13,23 @@ const Header = () => {
   const handleNavSwitch = () => {
     setNav(!nav);
   };
+  const hamburgerRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (
+        hamburgerRef.current &&
+        !hamburgerRef.current.contains(event.target)
+      ) {
+        setNav(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [hamburgerRef]);
+
   return (
     <header className='flex justify-between items-center bg-secondary p-6 sticky'>
       <h2 className='bg-clip-text font-bold text-xl text-transparent bg-gradient-to-r from-[#ea4996] to-[#8d56f4]'>
@@ -41,13 +58,14 @@ const Header = () => {
         <Menu size='24' color='#ffffff' />
       </div>
       <ul
+        ref={hamburgerRef}
         className={
           nav
-            ? 'fixed flex flex-col right-0 top-0 w-3/5 h-1/4 px-4 space-y-5 bg-primary rounded-l-2xl ease-in-out duration-500'
+            ? 'fixed flex flex-col right-0 top-0 w-3/5  p-8 space-y-5 bg-primary rounded-l-2xl ease-in-out duration-500'
             : 'ease-in-out duration-500 fixed -right-full'
         }
       >
-        <div className='flex justify-end pt-4 px-4'>
+        <div className='flex justify-end'>
           {' '}
           <CloseCircle size='24' color='#ffffff' onClick={handleNavSwitch} />
         </div>
@@ -67,14 +85,19 @@ const Header = () => {
 
         {visibility ? (
           <button
-            onClick={() => dispatch(hideVisibility())}
+            onClick={() => {
+              dispatch(hideVisibility());
+            }}
             className='hamburger-button'
           >
             View All Users
           </button>
         ) : (
           <button
-            onClick={() => dispatch(showVisibility())}
+            onClick={() => {
+              dispatch(showVisibility());
+              handleNavSwitch();
+            }}
             className='hamburger-button'
           >
             View All Posts
