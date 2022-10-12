@@ -14,10 +14,10 @@ const Layout = ({ children }: any) => {
       <Header />
 
       <main className='flex w-full h-screen'>
-        <div className=' w-1/4  bg-secondary border-r-2 px-6'>
+        <div className=' hidden md:block w-1/4  bg-secondary border-r-2 px-6'>
           <Sidebar />
         </div>
-        <div className='w-3/4 h-full overflow-auto'>{children}</div>
+        <div className='w-full md:w-3/4 h-full overflow-auto'>{children}</div>
       </main>
     </div>
   );

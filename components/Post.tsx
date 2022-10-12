@@ -69,7 +69,7 @@ const Post = ({ post }: any) => {
           <MessageRemove size='16' color={visibility ? '#0f172a' : '#334155'} />
           <span
             className={
-              visibility ? 'hover:text-primary' : 'hover:text-secondary'
+              visibility ? 'hover:text-primary' : 'hover:text-secondary '
             }
           >
             Delete
