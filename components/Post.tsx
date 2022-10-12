@@ -83,7 +83,7 @@ const Post = ({ post }: any) => {
       <p className=' font-normal text-base'>{post.body}</p>
       <div className='flex justify-between items-center'>
         <p className='post-navigation'>
-          <Message size='16' color={visibility ? '#0f172a' : '#334155'} />{' '}
+          <Message size='16' color='#ffffff' />{' '}
           <span
             className={
               visibility ? 'hover:text-primary' : 'hover:text-secondary'
@@ -93,15 +93,12 @@ const Post = ({ post }: any) => {
             Comments
           </span>
         </p>
-        <p className='post-navigation' onClick={() => deletePost(post.id)}>
-          <MessageRemove size='16' color={visibility ? '#0f172a' : '#334155'} />
-          <span
-            className={
-              visibility ? 'hover:text-primary' : 'hover:text-secondary '
-            }
-          >
-            Delete
-          </span>
+        <p
+          className='post-navigation hover:text-red'
+          onClick={() => deletePost(post.id)}
+        >
+          <MessageRemove size='16' color='#ff0000' />
+          <span>Delete</span>
         </p>
       </div>
       {openComments && <Comments comments={comments} />}

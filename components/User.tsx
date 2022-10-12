@@ -43,8 +43,8 @@ const User = ({ user }: any) => {
           className='flex space-x-2 items-center cursor-pointer place-self-end'
           onClick={() => setOpenPosts(!openPosts)}
         >
-          <Message size='16' color='#0f172a' />{' '}
-          <span className='hover:text-primary'>
+          <Message size='16' color='#ffffff' />{' '}
+          <span className='hover:text-primary hover:font-bold'>
             {!openPosts ? 'View Posts' : 'Close Posts'}
           </span>
         </p>
