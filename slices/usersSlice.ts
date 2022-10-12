@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export interface UsersState {
     users: [],
     userPosts: [],
+    searchInput: string,
 
 }
 
@@ -11,6 +12,7 @@ export interface UsersState {
 const initialState: UsersState = {
     users: [],
     userPosts: [],
+    searchInput: '',
 
 
 }
@@ -25,11 +27,14 @@ export const usersSlice = createSlice({
         getUserPosts: (state, action) => {
             state.userPosts = action.payload
         },
+        setSearchInput: (state, action) => {
+            state.searchInput = action.payload
+        },
 
     },
 })
 
 
-export const { getAllUsers, getUserPosts } = usersSlice.actions
+export const { getAllUsers, getUserPosts, setSearchInput } = usersSlice.actions
 
 export default usersSlice.reducer
