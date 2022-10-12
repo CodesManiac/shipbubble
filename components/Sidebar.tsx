@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { ArrowCircleRight, UserSearch } from 'iconsax-react';
 import { useDispatch } from 'react-redux';
 import { showVisibility, hideVisibility } from '../slices/postsSlice';
+import { setSearchInput } from '../slices/usersSlice';
 
 const Sidebar = () => {
-  const [searchInput, setSearchInput] = useState<string>('');
+  // const [searchInput, setSearchInput] = useState<string>('');
   const dispatch = useDispatch();
   return (
     <aside className=' py-4'>
@@ -15,7 +16,7 @@ const Sidebar = () => {
           placeholder='Search users'
           className='w-full outline-none bg-transparent placeholder:text-white placeholder:font-medium p-2'
           onChange={(e) => {
-            setSearchInput(e.target.value);
+            dispatch(setSearchInput(e.target.value));
           }}
         />
       </div>
