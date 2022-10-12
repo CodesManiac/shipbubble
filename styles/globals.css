@@ -11,15 +11,18 @@
 }
 @layer components{
     .post-navigation{
-        @apply flex space-x-2 items-center cursor-pointer;
+        @apply flex space-x-2 items-center cursor-pointer text-xs;
     }
     .pagination{
-        @apply flex py-3 my-8 justify-center items-center text-lg space-x-5
+        @apply flex py-3 my-8 justify-center items-center text-sm md:text-lg space-x-5
     }
     .pagination-content{
         @apply hover:bg-secondary hover:p-1 hover:rounded-lg
     }
     .active{
         @apply bg-secondary flex rounded-full p-1
+    }
+    .hamburger-button{
+        @apply py-2 px-4 rounded-lg font-medium md:font-semibold  hover:bg-secondary;
     }
 }

@@ -30,11 +30,11 @@ const Posts = () => {
 
       <ReactPaginate
         breakLabel='...'
-        nextLabel='next >'
+        nextLabel='>'
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
-        previousLabel='< previous'
+        previousLabel='<'
         // renderOnZeroPageCount={null}
         nextClassName='pagination-content'
         pageLinkClassName='pagination-content'

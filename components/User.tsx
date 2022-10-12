@@ -30,24 +30,24 @@ const User = ({ user }: any) => {
         <img
           src='/assets/icons/avatar.svg'
           alt='user'
-          className='self-start w-12'
+          className='self-start w-12 rounded-full bg-white'
         />
-        <div className='flex w-4/5 justify-between'>
-          <div className='spac-y-2'>
-            <p className=' font-semibold text-xl'>{user.name}</p>
-            <p className='font-medium text-lg'>{user.username}</p>
-            <p className='font-medium text-lg'>{user.email}</p>
-          </div>
-          <p
-            className='flex space-x-2 items-center cursor-pointer'
-            onClick={() => setOpenPosts(!openPosts)}
-          >
-            <Message size='16' color='#0f172a' />{' '}
-            <span className='hover:text-primary'>
-              {!openPosts ? 'View Posts' : 'Close Posts'}
-            </span>
-          </p>
+        <div className='spac-y-2'>
+          <p className=' font-semibold text-lg md:text-xl'>{user.name}</p>
+          <p className='font-medium text-base md:text-lg'>{user.username}</p>
+          <p className='font-medium text-sm md:text-lg'>{user.email}</p>
         </div>
+      </div>
+      <div className='grid'>
+        <p
+          className='flex space-x-2 items-center cursor-pointer place-self-end'
+          onClick={() => setOpenPosts(!openPosts)}
+        >
+          <Message size='16' color='#0f172a' />{' '}
+          <span className='hover:text-primary'>
+            {!openPosts ? 'View Posts' : 'Close Posts'}
+          </span>
+        </p>
       </div>
       {openPosts &&
         userPosts?.map((post: any) => <Post post={post} isUserPosts={true} />)}
